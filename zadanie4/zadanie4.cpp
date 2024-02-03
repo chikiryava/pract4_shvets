@@ -36,14 +36,17 @@ void ShowDates() {
     FILE* file;
 
     if ((file = fopen("graphic.txt", "r")) == NULL) {
-        printf("Файл невозможно создать или открыть\n");
+        printf("Файл невозможно открыть\n");
         return;
     }
-    printf("  Дата\t\tВремя начала\tВремя конца\n");
+    printf("---------------------------------------------------------\n");
+    printf("  Дата\t     |\tВремя начала\t|\tВремя конца\t|\n");
+    printf("---------------------------------------------------------\n");
 
     while (fscanf(file, "%10s %8s %8s", day, starttime, endtime) == 3){
-        printf("%s\t %s\t %s\n", day, starttime, endtime);
+        printf("%s   |\t %s\t|\t %s\t|\n", day, starttime, endtime);
     }
+    printf("---------------------------------------------------------\n");
 
     fclose(file);
 }
